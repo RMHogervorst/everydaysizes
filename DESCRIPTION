@@ -1,0 +1,14 @@
+Package: everydaysizes
+Title: Contains sizes of every day objects
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Roel M.",
+           family = "Hogervorst",
+           role = c("aut", "cre"),
+           email = "hogervorst.rm@gmail.com",
+           comment = c(ORCID = "0000-0001-7509-0328"))
+Description: Contains dimensions of everyday items with units.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en
+LazyData: true
