@@ -10,5 +10,8 @@ Authors@R:
 Description: Contains dimensions of everyday items with units.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Language: en
+Language: en_US
 LazyData: true
+RoxygenNote: 7.1.0
+Imports: 
+    units

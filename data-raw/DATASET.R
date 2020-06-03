@@ -43,3 +43,33 @@ everyday_items <- left_join(items, to_m, by="unit") %>%
 
 
 usethis::use_data(everyday_items)
+
+
+
+
+
+
+other_items <- data.frame(
+  stringsAsFactors = FALSE,
+              what = c("Eiffel Tower",
+                       "Olympic Size Swimming Pool","A4 paper size","A1 paper size",
+                       "US Tabloid","US letter",
+                       "E Matua Ngahere (giant kauri tree in New Zealand)"),
+             width = c(125, 25, 210, 594, 279, 216, 5.22),
+            height = c(324, 50, 297, 841, 432, 279, 29.9),
+             depth = c(125L, 3L, NA, NA, NA, NA, NA),
+              unit = c("m", "m", "mm", "mm", "mm", "mm", "m"),
+              type = c("Building", "Utilities", "paper", "paper", "paper", "paper", "plants"),
+            source = c("https://en.wikipedia.org/wiki/Eiffel_Tower","wikipedia","papersizes.org",
+                       "papersizes.org","papersizes.org","papersizes.org",
+                       "https://en.wikipedia.org/wiki/Te_Matua_Ngahere")
+)
+
+things <- left_join(other_items, to_m, by="unit") %>%
+  mutate(
+    height = set_units(height * magn,"m"),
+    width = set_units(width * magn,"m"),
+    depth = set_units(depth * magn,"m")
+  ) %>% select(-c("unit","magn"))
+
+usethis::use_data(things)
