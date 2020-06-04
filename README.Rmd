@@ -1,0 +1,63 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# everydaysizes
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of {everydaysizes} is to give you a set of every day items with their 
+dimensions. 
+
+## Installation
+
+You can not yet install the released version of everydaysizes from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+#install.packages("everydaysizes")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("RMHogervorst/everydaysizes")
+```
+## Example
+
+This is a basic example which shows you what is in the package.
+The Package at this moment contains 2 datasets with objects and their dimensions
+in units. 
+
+```{r example}
+library(everydaysizes)
+library(units)
+tail(everyday_items, 4)
+```
+
+```{r}
+library(tidyverse)
+library(ggforce)
+(devices <- 
+  everyday_items %>% 
+  filter(type == "device") )
+```
+
+```{r}
+ggplot(devices, aes(height, width, label = what)) +
+  geom_text()
+ggplot(devices, aes(height, depth, label = what)) +
+  geom_text()
+```
